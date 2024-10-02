@@ -14,6 +14,7 @@
         storyIndex += 1;
         happyScore += e.detail.value;
     }
+    let name = '';
 </script>
 
 
@@ -21,7 +22,8 @@
     <Header />
 {/if}
 <Container>
-    <h1>{smileySays}</h1>
+    <input type="text" bind:value={name}>
+    <h1>{name}, {smileySays}</h1>
     <Face {happyScore} size={storyIndex+1} />
     <Buttons {buttons} on:click={clickHandler} />
 </Container>
