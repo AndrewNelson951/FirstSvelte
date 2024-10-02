@@ -6,10 +6,14 @@
     import story from './story';
     
     let showHeader = false;
-    let score = 0;
-    $: smileySays = 'Hi there, your score is: ' + score;
-    $: if (score < -4) smileySays = 'Wow your score is low!'
-    let buttons = story[0].buttons;
+    let happyScore = 0;
+    let storyIndex = 0;
+    $: smileySays = story[storyIndex].smileySays;
+    $: buttons = story[storyIndex].buttons;
+    function clickHandler(e) {
+        storyIndex += 1;
+        happyScore += e.detail.value;
+    }
 </script>
 
 
@@ -18,8 +22,8 @@
 {/if}
 <Container>
     <h1>{smileySays}</h1>
-    <Face index={2} />
-    <Buttons {buttons} on:click={(e) => {score += e.detail.value}} />
+    <Face {happyScore} size={storyIndex+1} />
+    <Buttons {buttons} on:click={clickHandler} />
 </Container>
 
 
