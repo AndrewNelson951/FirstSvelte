@@ -1,4 +1,5 @@
 <script>
+    import Face from './Face.svelte';
     let say = 'hi';
     setTimeout(() => {
         say = 'bye';
@@ -9,11 +10,12 @@
     div {
         color: red;
     }
-    :global(div) {
-        background: blue;
-    }
 </style>
 
 <div>
     Say: {say}
 </div>
+
+<Face size="4" />
+<Face size="10" />
+<Face />
