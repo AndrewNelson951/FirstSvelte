@@ -2,10 +2,8 @@
     import Face from './Face.svelte';
     import Container from './Container.svelte';
     import Header from './Header.svelte';
+    import Button from './Button.svelte';
     let showHeader = false;
-    setTimeout(() => {
-        showHeader = true;
-    }, 1000);
 </script>
 
 
@@ -13,12 +11,8 @@
     <Header />
 {/if}
 <Container>
-    
+    <Button on:click={() => {showHeader = true}}>showwwww</Button>
 </Container>
-
-<!-- Challenge 2 - 
-1. use an if statement and settimeout to make Header appear after 1 second (1000 milliseconds)
-2. inside the header, make the face+sveltelogo repeat with #each  -->
 
 <style>
     div {
