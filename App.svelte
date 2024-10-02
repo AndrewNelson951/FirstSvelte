@@ -22,14 +22,10 @@
 {/if}
 <Container>
     <h1>{smileySays}</h1>
-    <Face index={2} />
+    <Face {happyScore} size={storyIndex+1} />
     <Buttons {buttons} on:click={clickHandler} />
 </Container>
 
-<!-- Challenge 4 - 
-1. add happyScore and storyIndex (both equal 0)
-2. smileySays and buttons get updated whenever storyIndex changes
-3. add clickHandler function that increments storyIndex and adds e.detail.value to the happyScore -->
 
 <style>
     div {
