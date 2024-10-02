@@ -1,20 +1,23 @@
 <script>
     import Face from './Face.svelte';
     import Container from './Container.svelte';
-    let say = 'hi';
+    let say = false;
     setTimeout(() => {
-        say = 'bye';
+        say = true;
     }, 1000)
 </script>
 
 <Container>
-    <div>
-        Say: {say}
-    </div>
-
-    <Face index={0} />
-    <Face />
-    <Face index={2}/>
+    {#if say}
+        <div>
+            Hi!
+        </div>
+    {:else if !say}
+        not saying anything..
+    {/if}
+    {#each [2,1,0] as index}
+        <Face {index} />
+    {/each}
 </Container>
 
 
